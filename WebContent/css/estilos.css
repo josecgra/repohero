@@ -1,0 +1,19 @@
+body {
+	font-family: Comfortaa;
+	background: url(../img/fondo.jfif) no-repeat center center fixed; 
+  	background-size: cover;
+}
+
+form {
+	background-color: #7bb41a; 
+	margin: 250px;
+	padding: 10px;
+	border-radius: 13px;
+	box-shadow: -11px -7px 9px -4px rgba(0,0,0,0.75);
+	color: white;
+}
+
+img {
+	width: 100px;
+}
+

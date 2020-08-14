@@ -1,69 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="crudjava.eoi.servicio.Conexion"%>
-<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Formulario de inicio</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="https://fonts.googleapis.com/css?family=Comfortaa">
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+<title>Login</title>
 </head>
 <body>
-<form action="registro.jsp" method="get" accept-charset="UTF-8">
-<p>
-Nombre: <input type="text" name="name_control" autofocus required />
-</p>
 
-<p>
-Correo electrónico: <input type="email" name="email_control" required />
-</p>
 
-<p>
-URL: <input type="url" name="url_control" placeholder="Escribe la URL de tu página web personal" />
-</p>
+	<div class="container">
+		<form>
+			<img src="img/eoi.png">
+			<hr>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputEmail4">Email</label> <input type="email"
+						class="form-control" id="inputEmail4"
+						placeholder="introduce el mail" required="" autocomplete="off">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">Password</label> <input type="password"
+						class="form-control" id="inputPassword4"
+						placeholder="introduce tu password" required="">
+				</div>
+			</div>
+			<button type="submit" class="btn btn-secondary btn-block">Login</button>
+		</form>
+	</div>
 
-<p>
-Fecha: <input type="date" name="date_control" />
-</p>
 
-<p>
-Tiempo: <input type="time" name="time_control" />
-</p>
 
-<p>
-Fecha y hora: <input type="datetime-local" name="datetime_control" />
-</p>
 
-<p>
-Mes: <input type="month" name="month_control" />
-</p>
-
-<p>
-Semana: <input type="week" name="week_control" />
-</p>
-
-<p>
-Número (min -10, max 10): <input type="number" name="number_control" min="-10" max="10" value="0" />
-</p>
-
-<p>
-Teléfono: <input type="tel" name="tel_control" />
-</p>
-
-<p>
-Término de búsqueda: <input type="search" name="search_control" />
-</p>
-
-<p>
-Color favorito: <input type="color" name="color_control" />
-</p>
-
-<p>
-<input type="submit" value="Enviar" />
-</p>
-</form>
-	
-
-	
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script
+		src="js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
 </body>
 </html>
