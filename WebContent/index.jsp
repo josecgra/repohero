@@ -20,22 +20,26 @@
 <body>
 
 
-	<form>
+	<form action="Login" method="post">
 		<img src="img/eoi.png">
 		<hr>
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label for="inputEmail4">Email</label> <input type="email"
-					class="form-control" id="inputEmail4" placeholder="Email">
+				<label for="inputEmail4">Email</label>
+				<input type="email"	class="form-control" id="inputEmail4" name="email" placeholder="Email">
 			</div>
 			<div class="form-group col-md-6">
-				<label for="inputPassword4">Password</label> <input type="password"
-					class="form-control" id="inputPassword4" placeholder="Password">
+				<label for="inputPassword4">Password</label>
+				<input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password">
 			</div>
 		</div>
 
 		<button type="submit" class="btn btn-secondary btn-block">Sign
 			in</button>
+		<div class="alert alert-danger
+		" role="alert">
+  			<%=request.getAttribute("msgerr") %>
+		</div>
 	</form>
 
 

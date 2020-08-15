@@ -1,4 +1,4 @@
-package crudjava.eoi.servicio;
+package es.eoi.servicios;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
