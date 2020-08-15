@@ -20,25 +20,23 @@
 <body>
 
 
-	<div class="container">
-		<form>
-			<img src="img/eoi.png">
-			<hr>
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="inputEmail4">Email</label> <input type="email"
-						class="form-control" id="inputEmail4"
-						placeholder="introduce el mail" required="" autocomplete="off">
-				</div>
-				<div class="form-group col-md-6">
-					<label for="inputPassword4">Password</label> <input type="password"
-						class="form-control" id="inputPassword4"
-						placeholder="introduce tu password" required="">
-				</div>
+	<form>
+		<img src="img/eoi.png">
+		<hr>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="inputEmail4">Email</label> <input type="email"
+					class="form-control" id="inputEmail4" placeholder="Email">
 			</div>
-			<button type="submit" class="btn btn-secondary btn-block">Login</button>
-		</form>
-	</div>
+			<div class="form-group col-md-6">
+				<label for="inputPassword4">Password</label> <input type="password"
+					class="form-control" id="inputPassword4" placeholder="Password">
+			</div>
+		</div>
+
+		<button type="submit" class="btn btn-secondary btn-block">Sign
+			in</button>
+	</form>
 
 
 
@@ -52,8 +50,7 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
 		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
 		crossorigin="anonymous"></script>
-	<script
-		src="js/bootstrap.min.js"
+	<script src="js/bootstrap.min.js"
 		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 		crossorigin="anonymous"></script>
 </body>
