@@ -55,7 +55,6 @@ public class Login extends HttpServlet {
 			Usuario usuario = udao.login(email, password);
 			String destPage = "index.jsp";
 
-			// si el usuario está logado
 			if (usuario != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("nomusuario", usuario.getNombre()+ " " +usuario.getApellidos());
