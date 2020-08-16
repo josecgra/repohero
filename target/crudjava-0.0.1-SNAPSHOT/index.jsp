@@ -20,7 +20,7 @@
 <body>
 
 
-	<form action="Login" method="post">
+	<form action="Login" method="POST">
 		<img src="img/eoi.png">
 		<hr>
 		<div class="form-row">
@@ -34,15 +34,19 @@
 			</div>
 		</div>
 
-		<button type="submit" class="btn btn-secondary btn-block">Sign
-			in</button>
-		<div class="alert alert-danger
-		" role="alert">
-  			<%=request.getAttribute("msgerr") %>
+		<button type="submit" id="submit" class="btn btn-secondary btn-block">Login</button>
+		<div style="color:red; font-size: 13px">
+  			
+  			<%
+  			
+	  			if (request.getAttribute("msgerr") != null) {
+	  	  			out.print(request.getAttribute("msgerr")); 	
+	  			}
+  			
+  			%>
+  			
 		</div>
 	</form>
-
-
 
 
 	<!-- Optional JavaScript -->
@@ -54,8 +58,9 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
 		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
 		crossorigin="anonymous"></script>
-	<script src="js/bootstrap.min.js"
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 		crossorigin="anonymous"></script>
+
 </body>
 </html>

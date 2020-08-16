@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 
@@ -59,9 +60,11 @@ public class Login extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("nomusuario", usuario.getNombre()+ " " +usuario.getApellidos());
 				destPage = "home.jsp";
+				String msgerr = "Login OK!";
+				request.setAttribute("msgerr", msgerr);	
 			} else {
-				String msgerr = "El usuario no está registrado";
-				request.setAttribute("msgerr", msgerr);
+				String msgerr = "El usuario no est&aacute; registrado";
+				request.setAttribute("msgerr", msgerr);				
 			}
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
