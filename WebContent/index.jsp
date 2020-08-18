@@ -35,17 +35,9 @@
 		</div>
 
 		<button type="submit" id="submit" class="btn btn-secondary btn-block">Login</button>
-		<div style="color:red; font-size: 13px">
-  			
-  			<%
-  			
-	  			if (request.getAttribute("msgerr") != null) {
-	  	  			out.print(request.getAttribute("msgerr")); 	
-	  			}
-  			
-  			%>
-  			
-		</div>
+		<a href="alta.jsp" style="text-decoration:none; color:#6c757d">regístrate</a>
+		<span style="color:red; float: right"><%=(request.getAttribute("msgerr") == null) ? "" : request.getAttribute("msgerr")%></span>
+		
 	</form>
 
 

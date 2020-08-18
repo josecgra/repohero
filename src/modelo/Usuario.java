@@ -10,6 +10,7 @@ public class Usuario {
 	private String password;
 	private Date fecnacimiento;
 	private String rol;
+	private String foto;
 	
 	public Usuario(int idusuario, String nombre, String apellidos, String email, String password, Date fecnacimiento,
 			String rol) {
@@ -84,6 +85,14 @@ public class Usuario {
 		this.rol = rol;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
 	@Override
 	public String toString() {
 		return "Usuario [idusuario=" + idusuario + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email="

@@ -32,9 +32,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="#">Home</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Registro</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Logout">Logout</a></li>
 			</ul>
 			<span class="navbar-text"> Bienvenido <%=session.getAttribute("nomusuario")%>
 			</span>
@@ -67,7 +65,7 @@
 					while (rs.next()) {
 			%>
 				<tr>
-					<td scope="col">10000</td>
+					<td scope="col"><%=rs.getString("idusuario")%></td>
 					<td scope="col"><%=rs.getString("nombre")%></td>
 					<td scope="col"><%=rs.getString("apellidos")%></td>
 					<td scope="col"><%=rs.getTimestamp("fecalta")%></td>

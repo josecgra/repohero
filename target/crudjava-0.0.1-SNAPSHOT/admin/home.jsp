@@ -16,13 +16,13 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Comfortaa">
-<link rel="stylesheet" type="text/css" href="css/estilos.css">
+<link rel="stylesheet" type="text/css" href="../css/estilos.css">
 <title>Home - EOI</title>
 </head>
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-light">
-		<a class="navbar-brand" href="#"><img src="img/eoi.png"></a>
+		<a class="navbar-brand" href="#"><img src="../img/eoi.png"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarText" aria-controls="navbarText"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +32,11 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="#">Home</a>
 				</li>
+				<li class="nav-item"><a class="nav-link" href="../alta.jsp">Nuevo</a>
+				</li>
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Logout">Logout</a></li>
 			</ul>
-			<span class="navbar-text"> Bienvenido <%=session.getAttribute("nomusuario")%>
+			<span class="navbar-text"> Bienvenido <%=session.getAttribute("nomusuario")%> Admin
 			</span>
 		</div>
 	</nav>
