@@ -20,7 +20,7 @@
 <body>
 
 
-	<form action="Control" method="POST" style="margin: 100px auto">
+	<form action="Control" method="POST" enctype="multipart/form-data" style="margin: 100px auto">
 		<img src="img/eoi.png">
 		<hr>
 		<div class="form-row">
@@ -66,7 +66,7 @@
 		</div>
 		<div class="form-row">&nbsp;</div>
 		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="customFile">
+			<input type="file" class="custom-file-input" name="foto" id="customFile">
 			<label class="custom-file-label" for="customFile">Foto</label>
 		</div>
 		<div class="form-row">&nbsp;</div>

@@ -12,6 +12,7 @@ public class Usuario {
 	private String rol;
 	private String foto;
 	
+
 	public Usuario(int idusuario, String nombre, String apellidos, String email, String password, Date fecnacimiento,
 			String rol) {
 		super();

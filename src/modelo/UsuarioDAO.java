@@ -54,13 +54,10 @@ public class UsuarioDAO {
 		pst.setString(3, u.getEmail());
 		pst.setString(4, u.getPassword());
 		pst.setDate(5, u.getFecnacimiento());
+		pst.setString(6, u.getFoto());
 		pst.setDate(7, new Date(System.currentTimeMillis()));
 		pst.setString(8, u.getRol());
 		
-		if (u.getFoto()!=null) {
-			//inputStream = u.getFoto().getInputStream();
-			//pst.setBinaryStream(6, inputStream, (int) u.getFoto().getSize());
-		}
 		
 		pst.executeUpdate();
 		

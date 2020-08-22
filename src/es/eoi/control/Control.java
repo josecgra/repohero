@@ -1,16 +1,19 @@
 package es.eoi.control;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import modelo.Usuario;
 import modelo.UsuarioDAO;
@@ -19,9 +22,10 @@ import modelo.UsuarioDAO;
  * Servlet implementation class Control
  */
 @WebServlet("/Control")
+@MultipartConfig(maxFileSize = 16177215)
 public class Control extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -49,8 +53,13 @@ public class Control extends HttpServlet {
 		String rol = request.getParameter("rol");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		String foto = request.getParameter("foto");
-		
+		Part fotoPart = request.getPart("foto");
+		String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos\\";
+		String fileName = "";
+		for (Part part : request.getParts()) {
+		    fileName = fotoPart.getSubmittedFileName();
+		    part.write(filePath + File.separator + fileName);
+		}
 		
 		Usuario usuario = new Usuario();
 		
@@ -60,7 +69,7 @@ public class Control extends HttpServlet {
 		usuario.setNombre(nombre);
 		usuario.setRol(rol);
 		usuario.setPassword(password);
-		usuario.setFoto(foto);
+		usuario.setFoto(fileName);
 		
 		UsuarioDAO udao = new UsuarioDAO();
 

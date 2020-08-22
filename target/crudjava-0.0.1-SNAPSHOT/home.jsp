@@ -53,6 +53,7 @@
 					<th scope="col">Email</th>
 					<th scope="col">Password</th>
 					<th scope="col">Rol</th>
+					<th scope="col">Foto</th>
 				</tr>
 			</thead>
 			<%
@@ -73,6 +74,7 @@
 					<td scope="col"><%=rs.getString("email")%></td>
 					<td scope="col"><%=rs.getString("password")%></td>
 					<td scope="col"><%=rs.getString("rol")%></td>
+					<td scope="col"><img src="<%=request.getContextPath() + "/fotos/" + rs.getString("foto")%>"></td>
 				</tr>
 				<%
 					}
