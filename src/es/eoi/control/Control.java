@@ -54,7 +54,8 @@ public class Control extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		Part fotoPart = request.getPart("foto");
-		String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos\\";
+		//String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos\\";
+		String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos/";
 		String fileName = "";
 		for (Part part : request.getParts()) {
 		    fileName = fotoPart.getSubmittedFileName();
