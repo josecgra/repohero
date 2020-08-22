@@ -32,7 +32,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="#">Home</a>
 				</li>
-				<% if (request.getAttribute("rol").equals("Admin")) { %>
+				<% if (session.getAttribute("rol").equals("Admin")) { %>
 				<li class="nav-item"><a class="nav-link" href="alta.jsp">Nuevo</a>
 				</li>
 				  <% } %>

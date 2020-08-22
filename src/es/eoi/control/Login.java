@@ -62,7 +62,7 @@ public class Login extends HttpServlet {
 				destPage = "home.jsp";
 				String msgerr = "Login OK!";
 				request.setAttribute("msgerr", msgerr);
-				request.setAttribute("rol", usuario.getRol());
+				session.setAttribute("rol", usuario.getRol());
 			} else {
 				String msgerr = "El usuario no est&aacute; registrado";
 				request.setAttribute("msgerr", msgerr);				
