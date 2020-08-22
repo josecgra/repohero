@@ -57,6 +57,9 @@ public class Control extends HttpServlet {
 		//String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos\\";
 		String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos/";
 		String fileName = "";
+		File uploadDir = new File(filePath);
+		if (!uploadDir.exists())
+			uploadDir.mkdir();
 		for (Part part : request.getParts()) {
 		    fileName = fotoPart.getSubmittedFileName();
 		    part.write(filePath + File.separator + fileName);
