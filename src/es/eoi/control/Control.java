@@ -99,22 +99,26 @@ public class Control extends HttpServlet {
 		String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos/";
 		String fileName = "";
 		File uploadDir = new File(filePath);
-		if (!uploadDir.exists()) {
-			System.out.println("directorio NO existe!");
-			if (uploadDir.mkdirs()) {
-				System.out.println("directorio creado!");
-			} else {
-				System.out.println("directorio no creado SIN PERMISOS!");
-				escritura = false;
-			}
-		} else {
-			System.out.println("directorio SI existe!");
-		}
+		System.out.println("RUTA: " + filePath);
 
-		if (escritura) {
-			for (Part part : request.getParts()) {
-				fileName = fotoPart.getSubmittedFileName();
-				part.write(filePath + File.separator + fileName);
+		if (fotoPart != null) {
+			if (!uploadDir.exists()) {
+				System.out.println("directorio NO existe!");
+				if (uploadDir.mkdirs()) {
+					System.out.println("directorio creado!");
+				} else {
+					System.out.println("directorio no creado SIN PERMISOS!");
+					escritura = false;
+				}
+			} else {
+				System.out.println("directorio SI existe!");
+			}
+
+			if (escritura) {
+				for (Part part : request.getParts()) {
+					fileName = fotoPart.getSubmittedFileName();
+					part.write(filePath + File.separator + fileName);
+				}
 			}
 		}
 
