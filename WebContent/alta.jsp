@@ -66,11 +66,11 @@
 		</div>
 		<div class="form-row">&nbsp;</div>
 		<div class="custom-file">
+			<input type="hidden" name="opcion" value="a">
 			<input type="file" class="custom-file-input" name="foto" id="customFile">
 			<label class="custom-file-label" for="customFile">Foto</label>
 		</div>
 		<div class="form-row">&nbsp;</div>
-		<input type="hidden" name="opcion" value="a">
 		<button type="submit" class="btn btn-secondary btn-block">Alta</button>
 	</form>
 
