@@ -83,6 +83,7 @@ public class Control extends HttpServlet {
 			throws ServletException, IOException {
 
 		String opcion = request.getParameter("opcion");
+		boolean escritura = true;
 		int idusuario = 0;
 		if (opcion.equals("e"))
 			idusuario = Integer.parseInt(request.getParameter("idusuario"));
@@ -97,10 +98,20 @@ public class Control extends HttpServlet {
 		// "fotos\\";
 		String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos/";
 		String fileName = "";
-		if (fotoPart != null) {
-			File uploadDir = new File(filePath);
-			if (!uploadDir.exists())
-				uploadDir.mkdir();
+		File uploadDir = new File(filePath);
+		if (!uploadDir.exists()) {
+			System.out.println("directorio NO existe!");
+			if (uploadDir.mkdirs()) {
+				System.out.println("directorio creado!");
+			} else {
+				System.out.println("directorio no creado SIN PERMISOS!");
+				escritura = false;
+			}
+		} else {
+			System.out.println("directorio SI existe!");
+		}
+
+		if (escritura) {
 			for (Part part : request.getParts()) {
 				fileName = fotoPart.getSubmittedFileName();
 				part.write(filePath + File.separator + fileName);
