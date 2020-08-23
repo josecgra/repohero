@@ -79,7 +79,9 @@ public class Control extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String opcion = request.getParameter("opcion");
-		int idusuario = Integer.parseInt(request.getParameter("idusuario"));
+		int idusuario = 0;
+		if (opcion.equals("e")) 
+			idusuario = Integer.parseInt(request.getParameter("idusuario"));
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		Date fecnacimiento=Date.valueOf(request.getParameter("fecnacimiento").toString());	
