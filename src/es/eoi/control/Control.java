@@ -25,26 +25,28 @@ import modelo.UsuarioDAO;
 @MultipartConfig(maxFileSize = 16177215)
 public class Control extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Control() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public Control() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String opcion = request.getParameter("opcion");
 		RequestDispatcher dispatcher;
-		int id=0;
+		int id = 0;
 		UsuarioDAO udao;
-		String destPage="index.jsp";
-		
+		String destPage = "index.jsp";
+
 		switch (opcion) {
 		case "eliminar":
 			id = Integer.parseInt(request.getParameter("id"));
@@ -67,41 +69,46 @@ public class Control extends HttpServlet {
 			}
 			break;
 		}
-		
+
 		dispatcher = request.getRequestDispatcher(destPage);
 		dispatcher.forward(request, response);
-		
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String opcion = request.getParameter("opcion");
 		int idusuario = 0;
-		if (opcion.equals("e")) 
+		if (opcion.equals("e"))
 			idusuario = Integer.parseInt(request.getParameter("idusuario"));
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
-		Date fecnacimiento=Date.valueOf(request.getParameter("fecnacimiento").toString());	
+		Date fecnacimiento = Date.valueOf(request.getParameter("fecnacimiento").toString());
 		String rol = request.getParameter("rol");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		Part fotoPart = request.getPart("foto");
-		//String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos\\";
+		// String filePath = request.getSession().getServletContext().getRealPath("/") +
+		// "fotos\\";
 		String filePath = request.getSession().getServletContext().getRealPath("/") + "fotos/";
 		String fileName = "";
-		File uploadDir = new File(filePath);
-		if (!uploadDir.exists())
-			uploadDir.mkdir();
-		for (Part part : request.getParts()) {
-		    fileName = fotoPart.getSubmittedFileName();
-		    part.write(filePath + File.separator + fileName);
+		if (fotoPart != null) {
+			File uploadDir = new File(filePath);
+			if (!uploadDir.exists())
+				uploadDir.mkdir();
+			for (Part part : request.getParts()) {
+				fileName = fotoPart.getSubmittedFileName();
+				part.write(filePath + File.separator + fileName);
+			}
 		}
-		
+
 		Usuario usuario = new Usuario();
-		
+
 		usuario.setApellidos(apellidos);
 		usuario.setEmail(email);
 		usuario.setFecnacimiento(fecnacimiento);
@@ -109,7 +116,7 @@ public class Control extends HttpServlet {
 		usuario.setRol(rol);
 		usuario.setPassword(password);
 		usuario.setFoto(fileName);
-		
+
 		UsuarioDAO udao = new UsuarioDAO();
 
 		try {
@@ -123,11 +130,11 @@ public class Control extends HttpServlet {
 
 			if (usuario != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("nomusuario", usuario.getNombre()+ " " +usuario.getApellidos());
+				session.setAttribute("nomusuario", usuario.getNombre() + " " + usuario.getApellidos());
 				session.setAttribute("rol", usuario.getRol());
 				destPage = "home.jsp";
 			}
-			
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
 			dispatcher.forward(request, response);
 
@@ -135,7 +142,7 @@ public class Control extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
