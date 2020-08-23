@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="modelo.Usuario"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,30 +16,32 @@
 <link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Comfortaa">
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
-<title>Alta de Usuario</title>
+<title>Editar Usuario</title>
 </head>
 <body>
 
-
+	<%
+		Usuario u = (Usuario) request.getAttribute("usuario");		
+	%>
 	<form action="Control" method="POST" enctype="multipart/form-data" style="margin: 100px auto">
 		<img src="img/eoi.png">
 		<hr>
 		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label for="inputNombre4">Nombre</label> <input type="text"
-					class="form-control" id="inputNombre4" name="nombre"
+					class="form-control" id="inputNombre4" name="nombre" value="<%=u.getNombre() %>"
 					placeholder="Nombre">
 			</div>
 			<div class="form-group col-md-6">
 				<label for="inputApellidos4">Apellidos</label> <input type="text"
-					class="form-control" id="inputApellidos4" name="apellidos"
+					class="form-control" id="inputApellidos4" name="apellidos" value="<%=u.getApellidos() %>"
 					placeholder="Apellidos">
 			</div>
 		</div>
 		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label for="inputFecha4">Fecha Nacimiento</label> <input type="date"
-					class="form-control" id="inputDate4" name="fecnacimiento"
+					class="form-control" id="inputDate4" name="fecnacimiento" value="<%=u.getFecnacimiento() %>"
 					placeholder="Fecha Nacimiento">
 			</div>
 			<div class="form-group col-md-6">
@@ -51,7 +54,7 @@
 		</div>
 		<div class="form-group">
 			<label for="inputEmail4">Email</label> <input type="email"
-				class="form-control" id="inputEmail4" name="email" placeholder="Email">
+				class="form-control" id="inputEmail4" name="email" placeholder="Email" value="<%=u.getEmail() %>">
 		</div>
 		<div class="form-row">
 			<div class="form-group col-md-6">
@@ -70,8 +73,9 @@
 			<label class="custom-file-label" for="customFile">Foto</label>
 		</div>
 		<div class="form-row">&nbsp;</div>
-		<input type="hidden" name="opcion" value="a">
-		<button type="submit" class="btn btn-secondary btn-block">Alta</button>
+		<input type="hidden" name="opcion" value="e">
+		<input type="hidden" name="idusuario" value="<%=u.getIdusuario() %>">
+		<button type="submit" class="btn btn-secondary btn-block">Guardar Datos</button>
 	</form>
 
 

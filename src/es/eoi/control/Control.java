@@ -38,8 +38,39 @@ public class Control extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String opcion = request.getParameter("opcion");
+		RequestDispatcher dispatcher;
+		int id=0;
+		UsuarioDAO udao;
+		String destPage="index.jsp";
+		
+		switch (opcion) {
+		case "eliminar":
+			id = Integer.parseInt(request.getParameter("id"));
+			udao = new UsuarioDAO();
+			try {
+				udao.eliminar(id);
+				destPage = "home.jsp";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			break;
+		case "editar":
+			id = Integer.parseInt(request.getParameter("id"));
+			udao = new UsuarioDAO();
+			try {
+				request.setAttribute("usuario", udao.getUsuario(id));
+				destPage = "editar.jsp";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			break;
+		}
+		
+		dispatcher = request.getRequestDispatcher(destPage);
+		dispatcher.forward(request, response);
+		
 	}
 
 	/**
@@ -47,6 +78,8 @@ public class Control extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String opcion = request.getParameter("opcion");
+		int idusuario = Integer.parseInt(request.getParameter("idusuario"));
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		Date fecnacimiento=Date.valueOf(request.getParameter("fecnacimiento").toString());	
@@ -78,7 +111,12 @@ public class Control extends HttpServlet {
 		UsuarioDAO udao = new UsuarioDAO();
 
 		try {
-			udao.alta(usuario);
+			if (opcion.equals("a"))
+				udao.alta(usuario);
+			if (opcion.equals("e")) {
+				usuario.setIdusuario(idusuario);
+				udao.modificar(usuario);
+			}
 			String destPage = "index.jsp";
 
 			if (usuario != null) {

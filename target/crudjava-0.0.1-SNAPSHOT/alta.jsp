@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Comfortaa">
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
-<title>Login</title>
+<title>Alta de Usuario</title>
 </head>
 <body>
 
@@ -70,6 +70,7 @@
 			<label class="custom-file-label" for="customFile">Foto</label>
 		</div>
 		<div class="form-row">&nbsp;</div>
+		<input type="hidden" name="opcion" value="a">
 		<button type="submit" class="btn btn-secondary btn-block">Alta</button>
 	</form>
 

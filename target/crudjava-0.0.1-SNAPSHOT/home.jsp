@@ -16,6 +16,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Comfortaa">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <title>Home - EOI</title>
 </head>
@@ -44,7 +45,7 @@
 	</nav>
 
 	<div class="container-fluid">
-
+		
 		<table class="table table-bordered">
 			<caption>Usuarios Registrados</caption>
 			<thead>
@@ -58,6 +59,9 @@
 					<th scope="col">Password</th>
 					<th scope="col">Rol</th>
 					<th scope="col">Foto</th>
+					<% if (session.getAttribute("rol").equals("Admin")) { %>
+					<th scope="col">Acción</th>
+					<% } %>
 				</tr>
 			</thead>
 			<%
@@ -79,6 +83,12 @@
 					<td scope="col"><%=rs.getString("password")%></td>
 					<td scope="col"><%=rs.getString("rol")%></td>
 					<td scope="col"><img src="<%=request.getContextPath() + "/fotos/" + rs.getString("foto")%>"></td>
+					<% if (session.getAttribute("rol").equals("Admin")) { %>
+					<td scope="col"><a href="Control?opcion=eliminar&id=<%=rs.getString("idusuario")%>"><i class="fa fa-trash" aria-hidden="true"></i>
+</a>
+<a href="Control?opcion=editar&id=<%=rs.getString("idusuario")%>"><i class="fa fa-edit" aria-hidden="true"></i>
+</a></td>
+					<% } %>
 				</tr>
 				<%
 					}
