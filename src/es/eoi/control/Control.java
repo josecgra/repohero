@@ -99,7 +99,7 @@ public class Control extends HttpServlet {
 		String fileName = "";
 		File uploadDir = new File(filePath);
 
-		if (fotoPart != null) {
+		if (fotoPart.getSubmittedFileName() != "") {
 			if (!uploadDir.exists())
 				uploadDir.mkdirs();
 			for (Part part : request.getParts()) {
